@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>lou.flan — creative technologist</title>
+  <meta name="description" content="lou.flan — melbourne-based creative technologist designing and building websites for creative businesses, events and independent brands." />
+  <script>
+    // Apply the saved theme before first paint to avoid a flash of light theme.
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'disco') {
+        document.documentElement.dataset.theme = saved;
+      }
+    } catch {}
+  </script>
+  <link rel="icon" href="fav.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <nav class="topnav" aria-label="primary">
+      <a href="/" class="brand" aria-label="lou.flan — home">
+        <span class="brandmark">
+          <span>lou</span><span class="brandmark-dot" aria-hidden="true">.</span><span>flan</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" aria-label="Theme. Activate to cycle.">
+          <span class="icon" aria-hidden="true">☀</span>
+          <span class="label mono">light</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="stage" id="top">
+      <section class="hero-row">
+        <div class="hero-left">
+          <h1 class="headline">websites with<br><span class="accent">personality,</span><br>built properly.</h1>
+          <p class="bio">
+            i design and build thoughtful, fast-loading websites for <mark>people with something interesting to put online</mark>.
+          </p>
+          <p class="bio-sub">award-winning design, product-engineering standards.</p>
+
+          <div class="contact-row">
+            <a class="email" href="mailto:hello@lou-flan.com">
+              <span>start a project</span>
+              <span class="email-arrow" aria-hidden="true">→</span>
+              <span>hello@lou-flan.com</span>
+            </a>
+            <p class="mono contact-note">
+              <span class="pulse" aria-hidden="true">●</span> spots open from july &rsquo;26
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-hamster">
+          <div class="ham-wrap" role="img" aria-label="hamster running in a wheel">
+            <svg viewBox="0 0 661 650" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="23.3345" y="649.553" width="33" height="467" rx="16.5" transform="rotate(-135 23.3345 649.553)" fill="#C4C4C4" />
+              <rect x="660.553" y="626.219" width="33" height="467" rx="16.5" transform="rotate(135 660.553 626.219)" fill="#C4C4C4" />
+
+              <g id="hamster">
+                <path class="leg leg-1" d="M201.898 536.027C207.23 534.506 212.631 530.784 216.763 525.273C224.801 514.553 224.997 501.124 217.201 495.278C209.405 489.433 196.569 493.384 188.531 504.103C185.841 507.69 184.03 511.58 183.102 515.387C177.245 514.978 172.562 516.638 171.309 520.058C169.484 525.042 175.635 531.877 185.047 535.324C191.594 537.721 197.994 537.849 201.898 536.027Z" fill="#FF9820" />
+                <path class="leg leg-2" d="M362.067 573.277C366.151 569.526 369.31 563.778 370.533 556.999C372.912 543.814 367.067 531.722 357.478 529.992C347.888 528.261 338.186 537.548 335.806 550.733C335.01 555.145 335.135 559.434 336.012 563.253C330.593 565.513 327.152 569.096 327.565 572.715C328.168 577.988 336.73 581.34 346.689 580.202C353.615 579.411 359.393 576.655 362.067 573.277Z" fill="#FF9820" />
+                <path class="leg leg-3" d="M238.625 550.054C242.942 546.575 246.466 541.043 248.124 534.357C251.349 521.353 246.296 508.909 236.838 506.563C227.38 504.218 217.099 512.859 213.874 525.863C212.795 530.214 212.642 534.503 213.271 538.371C207.718 540.276 204.052 543.63 204.231 547.268C204.492 552.569 212.82 556.466 222.832 555.973C229.795 555.63 235.739 553.253 238.625 550.054Z" fill="#F5A64A" />
+                <path class="leg leg-4" d="M399.206 559.951C400.506 554.561 399.924 548.028 397.162 541.718C391.787 529.445 380.194 522.664 371.268 526.573C362.342 530.481 359.463 543.599 364.837 555.873C366.635 559.979 369.13 563.471 371.987 566.153C368.748 571.05 367.888 575.943 370.248 578.717C373.688 582.759 382.665 580.769 390.298 574.273C395.608 569.755 398.869 564.247 399.206 559.951Z" fill="#F5A64A" />
+                <ellipse cx="232.456" cy="335.035" rx="17.6437" ry="24.2601" transform="rotate(11.9419 232.456 335.035)" fill="#FF9820" />
+                <path d="M319.561 545.29C393.573 548.576 469.644 508.101 472.893 434.925C476.142 361.749 402.295 352.136 328.283 348.85C313.344 348.186 297.81 345.874 282.418 343.583C245.113 338.03 208.648 332.602 183.54 351.083C157.148 366.464 142.118 367.454 133.387 368.028C122.808 368.725 121.479 368.812 120.398 393.16C119.254 418.935 134.948 436.547 154.803 444.687C170.67 504.247 253.978 542.378 319.561 545.29Z" fill="#F5A64A" />
+                <path d="M439.663 471.579C426.129 496.596 414.337 496.479 380.773 478.321C347.209 460.163 322.344 440.447 335.879 415.43C349.413 390.414 396.221 369.571 429.784 387.729C463.348 405.887 453.198 446.563 439.663 471.579Z" fill="white" />
+                <circle cx="128.838" cy="372.16" r="7.5" transform="rotate(2.54233 128.838 372.16)" fill="#FFC0C0" />
+                <g>
+                  <circle cx="213.533" cy="380.925" r="23.5" transform="rotate(2.54233 213.533 380.925)" fill="#3D3D3D" />
+                  <circle cx="208.83" cy="373.247" r="8" transform="rotate(2.54233 208.83 373.247)" fill="white" />
+                </g>
+                <ellipse id="eyelid" cx="214.368" cy="378.246" rx="28.1322" ry="26.5656" transform="rotate(13.4897 214.368 378.246)" fill="#F5A64A" />
+                <g>
+                  <ellipse cx="252.865" cy="339.073" rx="17.6437" ry="24.2601" transform="rotate(35.1551 252.865 339.073)" fill="#F5A64A" />
+                  <ellipse cx="250.619" cy="338.99" rx="12" ry="16.5" transform="rotate(35.1551 250.619 338.99)" fill="white" />
+                </g>
+              </g>
+
+              <g id="hamster2">
+                <path class="leg leg-1" d="M201.898 536.027C207.23 534.506 212.631 530.784 216.763 525.273C224.801 514.553 224.997 501.124 217.201 495.278C209.405 489.433 196.569 493.384 188.531 504.103C185.841 507.69 184.03 511.58 183.102 515.387C177.245 514.978 172.562 516.638 171.309 520.058C169.484 525.042 175.635 531.877 185.047 535.324C191.594 537.721 197.994 537.849 201.898 536.027Z" fill="#4e515e" />
+                <path class="leg leg-2" d="M362.067 573.277C366.151 569.526 369.31 563.778 370.533 556.999C372.912 543.814 367.067 531.722 357.478 529.992C347.888 528.261 338.186 537.548 335.806 550.733C335.01 555.145 335.135 559.434 336.012 563.253C330.593 565.513 327.152 569.096 327.565 572.715C328.168 577.988 336.73 581.34 346.689 580.202C353.615 579.411 359.393 576.655 362.067 573.277Z" fill="#4e515e" />
+                <path class="leg leg-3" d="M238.625 550.054C242.942 546.575 246.466 541.043 248.124 534.357C251.349 521.353 246.296 508.909 236.838 506.563C227.38 504.218 217.099 512.859 213.874 525.863C212.795 530.214 212.642 534.503 213.271 538.371C207.718 540.276 204.052 543.63 204.231 547.268C204.492 552.569 212.82 556.466 222.832 555.973C229.795 555.63 235.739 553.253 238.625 550.054Z" fill="#727687" />
+                <path class="leg leg-4" d="M399.206 559.951C400.506 554.561 399.924 548.028 397.162 541.718C391.787 529.445 380.194 522.664 371.268 526.573C362.342 530.481 359.463 543.599 364.837 555.873C366.635 559.979 369.13 563.471 371.987 566.153C368.748 571.05 367.888 575.943 370.248 578.717C373.688 582.759 382.665 580.769 390.298 574.273C395.608 569.755 398.869 564.247 399.206 559.951Z" fill="#727687" />
+                <ellipse cx="232.456" cy="335.035" rx="17.6437" ry="24.2601" transform="rotate(11.9419 232.456 335.035)" fill="#4e515e" />
+                <path d="M319.561 545.29C393.573 548.576 469.644 508.101 472.893 434.925C476.142 361.749 402.295 352.136 328.283 348.85C313.344 348.186 297.81 345.874 282.418 343.583C245.113 338.03 208.648 332.602 183.54 351.083C157.148 366.464 142.118 367.454 133.387 368.028C122.808 368.725 121.479 368.812 120.398 393.16C119.254 418.935 134.948 436.547 154.803 444.687C170.67 504.247 253.978 542.378 319.561 545.29Z" fill="#727687" />
+                <path d="M439.663 471.579C426.129 496.596 414.337 496.479 380.773 478.321C347.209 460.163 322.344 440.447 335.879 415.43C349.413 390.414 396.221 369.571 429.784 387.729C463.348 405.887 453.198 446.563 439.663 471.579Z" fill="#ffffff" />
+                <circle cx="128.838" cy="372.16" r="7.5" transform="rotate(2.54233 128.838 372.16)" fill="#FFC0C0" />
+                <g>
+                  <circle cx="213.533" cy="380.925" r="23.5" transform="rotate(2.54233 213.533 380.925)" fill="#3D3D3D" />
+                  <circle cx="208.83" cy="373.247" r="8" transform="rotate(2.54233 208.83 373.247)" fill="white" />
+                </g>
+                <ellipse id="eyelid2" cx="214.368" cy="378.246" rx="28.1322" ry="26.5656" transform="rotate(13.4897 214.368 378.246)" fill="#727687" />
+                <g>
+                  <ellipse cx="252.865" cy="339.073" rx="17.6437" ry="24.2601" transform="rotate(35.1551 252.865 339.073)" fill="#727687" />
+                  <ellipse cx="250.619" cy="338.99" rx="12" ry="16.5" transform="rotate(35.1551 250.619 338.99)" fill="#FFC0C0" />
+                </g>
+              </g>
+
+              <path class="wheel" d="M61 289H600V336H61V289Z" fill="white" />
+              <path class="wheel" fill-rule="evenodd" clip-rule="evenodd" d="M643 312C643 484.313 503.313 624 331 624C158.687 624 19 484.313 19 312C19 139.687 158.687 0 331 0C503.313 0 643 139.687 643 312ZM324.092 614.923V585.915C293.355 585.154 263.874 579.332 236.451 569.25L225.857 596.26C256.566 607.623 289.619 614.152 324.092 614.923ZM211.954 590.719L222.551 563.701C193.803 551.297 167.6 534.113 144.947 513.149L124.427 533.669C149.897 557.416 179.465 576.824 211.954 590.719ZM113.733 523.197L134.241 502.688C112.867 480.638 95.1668 455.007 82.1271 426.78L55.4499 438.197C69.9651 469.839 89.77 498.55 113.733 523.197ZM49.5493 424.443L76.2259 413.026C64.7568 384.127 58.0623 352.813 57.1162 320.059H28.1051C29.0661 356.863 36.5898 392.034 49.5493 424.443ZM28.0772 305.092H57.0854C57.8349 274.801 63.5006 245.729 73.3146 218.645L46.3237 207.989C35.2178 238.377 28.8389 271.042 28.0772 305.092ZM51.8093 194.063L78.7987 204.719C91.6617 174.519 109.791 147.1 132.033 123.616L111.52 103.103C86.5027 129.38 66.1555 160.143 51.8093 194.063ZM122.103 92.52L142.616 113.033C163.602 93.1562 187.731 76.5641 214.18 64.0797L202.212 37.6531C172.567 51.5937 145.549 70.1978 122.103 92.52ZM215.911 31.622L227.886 58.0647C257.7 45.9462 290.129 38.9258 324.092 38.0854V9.07719C285.865 9.93231 249.385 17.8671 215.911 31.622ZM452.241 589.77C417.436 604.983 379.22 613.846 339.059 614.895V585.884C374.955 584.847 409.12 576.906 440.274 563.343L452.241 589.77ZM465.803 583.436C493.093 569.857 518.046 552.283 539.897 531.48L519.384 510.967C499.997 529.328 477.929 544.887 453.828 556.994L465.803 583.436ZM550.48 520.897C575.355 494.77 595.613 464.207 609.945 430.516L582.954 419.859C570.106 449.832 552.067 477.05 529.967 500.384L550.48 520.897ZM615.46 416.602C626.573 386.389 633.011 353.915 633.895 320.059H604.884C604.014 350.156 598.291 379.037 588.47 405.946L615.46 416.602ZM633.923 305.092C633.092 267.955 625.58 232.466 612.54 199.781L585.863 211.198C597.412 240.374 604.096 272.005 604.915 305.092H633.923ZM606.65 186.022C593.023 156.253 574.716 129.074 552.669 105.427L532.149 125.947C551.617 146.985 567.826 171.083 579.974 197.438L606.65 186.022ZM542.197 94.7327C514.965 68.2572 482.773 46.8572 447.148 32.0595L436.554 59.0701C468.433 72.3897 497.259 91.5608 521.688 115.241L542.197 94.7327ZM433.187 26.6637L422.59 53.682C396.354 44.3793 368.28 38.9603 339.059 38.1162V9.1051C372.015 9.96559 403.661 16.0882 433.187 26.6637ZM331 577C477.355 577 596 458.355 596 312C596 165.645 477.355 47 331 47C184.645 47 66 165.645 66 312C66 458.355 184.645 577 331 577Z" fill="white" />
+              <circle cx="330" cy="312" r="16" fill="#C4C4C4" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-row">
+        <div class="col">
+          <h2 class="col-title mono"><span class="dim">#</span> about</h2>
+          <p>previously at <a href="https://www.atlassian.com/" target="_blank" rel="noopener"><mark>atlassian</mark><span class="sr-only"> (opens in a new tab)</span></a>, working on editor and ai experiences inside confluence and jira.</p>
+          <p>before that i was at <a href="https://www.futurefriendly.studio/" target="_blank" rel="noopener"><mark>future friendly</mark><span class="sr-only"> (opens in a new tab)</span></a>, helping shape digital products and services for ABC, Westfund, Parks Australia and Ally Health.</p>
+          <p>now i run a one-person web studio with a simple rule: take care, be kind, make good work.</p>
+        </div>
+
+        <div class="col">
+          <h2 class="col-title mono"><span class="dim">#</span> recognition</h2>
+          <ul class="recog">
+            <li><span><b>D&amp;AD</b> <span class="dim">— Yellow Pencil</span></span></li>
+            <li><span><a href="https://good-design.org/design-and-commission-detail/?design=Louise+Flanagan+-+Future+Friendly" target="_blank" rel="noopener"><b>Good Design Award</b> <span class="dim">— Gold</span><span class="sr-only"> (opens in a new tab)</span></a></span></li>
+            <li><span><a href="https://good-design.org/design-and-commission-detail/?design=Louise+Flanagan+-+Future+Friendly" target="_blank" rel="noopener"><b>Good Design Award</b> <span class="dim">— Gold</span><span class="sr-only"> (opens in a new tab)</span></a></span></li>
+            <li><span><b>Talks</b> <span class="dim">— Coder Academy, SydCSS</span></span></li>
+          </ul>
+        </div>
+
+        <aside class="card-work">
+          <h2 class="col-title mono">selected work <span class="pill">coming soon</span></h2>
+          <p>currently building an illustrator portfolio, a music festival site and a small personal project for people who need to find shark movies.</p>
+          <a href="mailto:hello@lou-flan.com" class="arrow-cta" aria-label="get in touch">→</a>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footstrip">
+      <p class="mono"><span class="dim">©</span> 2026 · lou.flan</p>
+      <p class="mono dim"><span class="blink" aria-hidden="true">●</span> all systems running</p>
+    </footer>
+  </div>
+
+  <script src="theme.js"></script>
+</body>
+</html>
