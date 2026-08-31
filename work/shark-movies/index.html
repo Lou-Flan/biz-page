@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>shark-movies.net — case study — lou.flan</title>
+  <meta name="description" content="a hand-curated database of shark cinema, built solo on astro and cloudflare workers with an edge-served d1 database, a weekly data pipeline and a public voting mechanic." />
+  <script>
+    // Apply the saved theme before first paint to avoid a flash of light theme.
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'disco') {
+        document.documentElement.dataset.theme = saved;
+      }
+    } catch {}
+  </script>
+  <link rel="icon" href="../../fav.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="../../styles.css?v=2" />
+</head>
+<body>
+  <div class="shell">
+    <nav class="topnav" aria-label="primary">
+      <a href="/" class="brand" aria-label="lou.flan — home">
+        <span class="brandmark">
+          <span>lou</span><span class="brandmark-dot" aria-hidden="true">.</span><span>flan</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" aria-label="Theme. Activate to cycle.">
+          <span class="icon" aria-hidden="true">☀</span>
+          <span class="label mono">light</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="doc">
+      <a class="backlink mono" href="/">&larr; selected work</a>
+
+      <header class="doc-head">
+        <h1 class="doc-title">shark-movies.net</h1>
+        <p class="doc-standfirst">
+          a curated database of shark cinema — the classics, the rip-offs, the straight-to-streaming
+          disasters — <mark>designed and built end to end</mark> as a solo project.
+        </p>
+
+        <dl class="factlist">
+          <div>
+            <dt class="mono">role</dt>
+            <dd>design and build, self-initiated</dd>
+          </div>
+          <div>
+            <dt class="mono">scope</dt>
+            <dd>product, data pipeline and interactive features</dd>
+          </div>
+          <div>
+            <dt class="mono">live</dt>
+            <dd>
+              <a class="ext" href="https://shark-movies.net" target="_blank" rel="noopener">
+                shark-movies.net<span class="sr-only"> (opens in a new tab)</span>
+                <span aria-hidden="true">&#8599;</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <ul class="taglist mono" aria-label="stack">
+          <li>astro 6</li>
+          <li>typescript</li>
+          <li>tailwind v4</li>
+          <li>cloudflare workers</li>
+          <li>d1</li>
+          <li>drizzle</li>
+          <li>github actions</li>
+          <li>tmdb</li>
+          <li>turnstile</li>
+        </ul>
+      </header>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">01</span> the idea</h2>
+        <p>
+          not another movie listing. a reference site that claims a category and defends it — a published
+          methodology page setting out what counts as a shark movie, and a catalogue sorted into the ones that
+          hold up, the ones that are gloriously bad, and the documentaries that are somehow worse.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">02</span> the look</h2>
+        <p>
+          a bespoke retro-broadcast design system in tailwind v4, carried across roughly 22 components:
+          self-hosted display and mono faces, scanline and glow treatments, an on-screen-display clock, custom
+          logo and favicon.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">03</span> the data</h2>
+        <p>
+          a cloudflare d1 database with drizzle as the schema source of truth, over eight versioned
+          migrations. a scheduled github actions job ingests from tmdb each week — discovery by keyword,
+          watch providers, trailers — so streaming links stay current without me touching anything. slugs are
+          permanent (<span class="mono">/movie/jaws-1975</span>) with 301s from legacy ids, so urls survive
+          title edits and any future change of data provider.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">04</span> curation as code</h2>
+        <p>
+          threat levels, shark screen time and curator notes are editorial, not facts, so they live in
+          version-controlled json the weekly ingest can never overwrite. an ai-assisted workflow drafts the
+          curation for each new title and opens a review pr — nothing reaches the site unreviewed, and the
+          two kinds of data never contaminate each other.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">05</span> no accounts, no tracking</h2>
+        <p>
+          the tribunal is a public vote on whether contested titles even count as shark movies, with
+          objections and atomic aggregate counters, one vote per browser on the honour system. there's a
+          watchlist and a survival record too. all of it works with no sign-up, no cookies and no analytics —
+          the interesting features didn't need to know who anyone is.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">06</span> speed and hardening</h2>
+        <p>
+          astro ssr on cloudflare workers, with hot pages served from the edge cache and the heavy listing
+          page pre-rendered from a committed data dump to keep worker cpu down. hardened security headers,
+          iframe sandboxing, bearer-auth admin endpoints and turnstile on the contact and newsletter forms;
+          json-ld, open graph images and a dynamic sitemap for the search engines and answer engines.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">07</span> the constraint</h2>
+        <p>
+          tmdb's free tier forbids making money from the site, so every monetisation idea is explicitly
+          parked behind a planned move to a commercially-licensed data provider — written down as a roadmap
+          rather than shipped now and unpicked later.
+        </p>
+      </section>
+
+      <section class="doc-cta">
+        <p>got something in this shape?</p>
+        <a class="email" href="mailto:hello@lou-flan.com">
+          <span>start a project</span>
+          <span class="email-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footstrip">
+      <p class="mono"><span class="dim">©</span> 2026 · lou.flan</p>
+      <p class="mono dim"><span class="blink" aria-hidden="true">●</span> all systems running</p>
+    </footer>
+  </div>
+
+  <script src="../../theme.js?v=2"></script>
+</body>
+</html>
