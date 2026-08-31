@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>rabbits eat lettuce — case study — lou.flan</title>
+  <meta name="description" content="moving a music festival off webflow into a custom astro build: 20+ routes, a sanity cms the client runs themselves, and ten application forms feeding straight into their airtable." />
+  <script>
+    // Apply the saved theme before first paint to avoid a flash of light theme.
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'disco') {
+        document.documentElement.dataset.theme = saved;
+      }
+    } catch {}
+  </script>
+  <link rel="icon" href="../../fav.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <nav class="topnav" aria-label="primary">
+      <a href="/" class="brand" aria-label="lou.flan — home">
+        <span class="brandmark">
+          <span>lou</span><span class="brandmark-dot" aria-hidden="true">.</span><span>flan</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" aria-label="Theme. Activate to cycle.">
+          <span class="icon" aria-hidden="true">☀</span>
+          <span class="label mono">light</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="doc">
+      <a class="backlink mono" href="/">&larr; selected work</a>
+
+      <header class="doc-head">
+        <h1 class="doc-title">rabbits eat lettuce</h1>
+        <p class="doc-standfirst">
+          a music festival off webflow and into a custom build, with an application system that
+          <mark>feeds straight into the festival's own tools</mark>.
+        </p>
+
+        <dl class="factlist">
+          <div>
+            <dt class="mono">role</dt>
+            <dd>design revamp and build</dd>
+          </div>
+          <div>
+            <dt class="mono">scope</dt>
+            <dd>full site migration, cms and application system</dd>
+          </div>
+          <div>
+            <dt class="mono">live</dt>
+            <dd>
+              <a class="ext" href="https://rabbitseatlettuce.com" target="_blank" rel="noopener">
+                rabbitseatlettuce.com<span class="sr-only"> (opens in a new tab)</span>
+                <span aria-hidden="true">&#8599;</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <ul class="taglist mono" aria-label="stack">
+          <li>astro 6</li>
+          <li>typescript</li>
+          <li>tailwind v4</li>
+          <li>sanity</li>
+          <li>airtable</li>
+          <li>cloudflare workers</li>
+          <li>r2</li>
+          <li>kv</li>
+          <li>turnstile</li>
+        </ul>
+      </header>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">01</span> the brief</h2>
+        <p>
+          an easter camping festival in its 18th year, running on webflow, with applications scattered across
+          a patchwork of external form tools. move all of it into a custom build the festival could run
+          themselves.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">02</span> the frontend</h2>
+        <p>
+          20+ routes rebuilt in astro on a shared component system. the existing design was revamped, not
+          thrown out — home, ticket and venue pages reworked around conversion, the rest carried across and
+          tidied. every legacy url redirects, so eighteen years of search equity survived the move.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">03</span> a cms with a short leash</h2>
+        <p>
+          15 sanity schemas covering only what the client actually edits: event details, faqs, lineup,
+          galleries, ticket pricing, and switches to open and close each application category. drafts preview
+          on the real site, with click-to-edit. a cms that models everything is a cms nobody can safely use.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">04</span> ten application forms</h2>
+        <p>
+          volunteers, media, music, performers, vj, decor, workshops, theme camps, market stalls and festival
+          build — multi-step, conditional, with file uploads and a review step. all ten run off one shared
+          schema, so a category's questions, its validation and its airtable mapping live in a single place.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">05</span> a pipeline that doesn't lose people</h2>
+        <p>
+          a cloudflare worker validates each submission, puts the files in r2 and writes the record to the
+          right department's airtable base. turnstile, a honeypot and per-ip rate limiting keep the spam out.
+          if airtable ever rejects a write, the submission and its files are backed up rather than lost and
+          orphaned uploads roll back — nobody's application disappears quietly.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-h2"><span class="dim mono">06</span> tested, then handed over</h2>
+        <p>
+          unit tests cover the form, validation, security and integration logic, running in ci with lint and
+          typecheck. an authenticated preflight checks every airtable base for renamed fields before
+          applications open — the one change that can quietly break live submissions. production runs on the
+          client's own cloudflare and sanity accounts, with a plain-english guide for editing content, opening
+          applications and reading submissions.
+        </p>
+      </section>
+
+      <section class="doc-cta">
+        <p>got something in this shape?</p>
+        <a class="email" href="mailto:hello@lou-flan.com">
+          <span>start a project</span>
+          <span class="email-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footstrip">
+      <p class="mono"><span class="dim">©</span> 2026 · lou.flan</p>
+      <p class="mono dim"><span class="blink" aria-hidden="true">●</span> all systems running</p>
+    </footer>
+  </div>
+
+  <script src="../../theme.js"></script>
+</body>
+</html>
