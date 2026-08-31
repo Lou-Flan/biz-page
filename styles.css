@@ -794,11 +794,5 @@ a.work-arrow:hover { transform: translate(2px, -2px); }
   padding-top: clamp(20px, 3vh, 32px);
   border-top: 1px solid var(--rule);
 }
-.doc-cta p {
-  margin: 0;
-  font-size: 16px;
-  color: var(--ink-2);
-}
-
 [data-theme="dark"] .ext { text-decoration-color: var(--accent); }
 [data-theme="disco"] .taglist li { border-color: var(--rule); }
