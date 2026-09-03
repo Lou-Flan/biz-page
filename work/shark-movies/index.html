@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>shark-movies.net — case study — lou.flan</title>
-  <meta name="description" content="a curated database of shark cinema, built solo on astro and cloudflare workers with an edge-served d1 database, a weekly data pipeline and a public voting mechanic." />
+  <meta name="description" content="a curated database of shark cinema, built solo on astro and cloudflare workers with a git-versioned catalogue, a weekly data pipeline and a public voting mechanic." />
   <script>
     // Apply the saved theme before first paint to avoid a flash of light theme.
     try {
@@ -76,6 +76,7 @@
           <li>github actions</li>
           <li>tmdb</li>
           <li>turnstile</li>
+          <li>vitest</li>
         </ul>
       </header>
 
@@ -91,7 +92,7 @@
       <section class="doc-section">
         <h2 class="doc-h2"><span class="dim mono">02</span> the look</h2>
         <p>
-          a bespoke retro-broadcast design system in tailwind v4, carried across roughly 22 components:
+          a bespoke retro-broadcast design system in tailwind v4, carried across seventeen components:
           self-hosted display and mono faces, scanline and glow treatments, an on-screen-display clock, custom
           logo and favicon.
         </p>
@@ -100,11 +101,13 @@
       <section class="doc-section">
         <h2 class="doc-h2"><span class="dim mono">03</span> the data</h2>
         <p>
-          a cloudflare d1 database with drizzle as the schema source of truth, over eight versioned
-          migrations. a scheduled github actions job ingests from tmdb each week — discovery by keyword,
-          watch providers, trailers — so streaming links stay current without me touching anything. slugs are
-          permanent (<span class="mono">/movie/jaws-1975</span>) with 301s from legacy ids, so urls survive
-          title edits and any future change of data provider.
+          the catalogue is git: one versioned json file per title — 451 and counting — refreshed weekly by
+          a scheduled github actions job that sweeps tmdb (discovery by keyword, watch providers, trailers)
+          and commits the diff, so streaming data stays current without me touching anything. a build step
+          merges facts with editorial through a single publish gate and prerenders every movie page. slugs
+          are permanent (<span class="mono">/movie/jaws-1975</span>) with 301s from legacy ids, so urls
+          survive title edits and any change of data provider — the catalogue itself started life in an
+          edge database and moved to files without breaking a single link.
         </p>
       </section>
 
@@ -112,9 +115,10 @@
         <h2 class="doc-h2"><span class="dim mono">04</span> curation as code</h2>
         <p>
           threat levels, shark screen time and curator notes are editorial, not facts, so they live in
-          version-controlled json the weekly ingest can never overwrite. an ai-assisted workflow drafts the
-          curation for each new title and opens a review pr — nothing reaches the site unreviewed, and the
-          two kinds of data never contaminate each other.
+          version-controlled json the weekly refresh can never overwrite. an ai-assisted workflow drafts
+          the curation for each new title into a quarantine the build never reads — nothing reaches the
+          site until i've reviewed it and merged it myself, and the two kinds of data never contaminate
+          each other.
         </p>
       </section>
 
@@ -123,18 +127,21 @@
         <p>
           the tribunal is a public vote on whether contested titles even count as shark movies, with
           objections and atomic aggregate counters, one vote per browser on the honour system. there's a
-          watchlist and a survival record too. all of it works with no sign-up, no cookies and no analytics —
-          the interesting features didn't need to know who anyone is.
+          watchlist, a survival record, and a form for reporting films i've missed. the vote tallies are
+          the only database left — two tables, snapshotted to git weekly — and all of it works with no
+          sign-up and no cookies: the interesting features didn't need to know who anyone is.
         </p>
       </section>
 
       <section class="doc-section">
         <h2 class="doc-h2"><span class="dim mono">06</span> speed and hardening</h2>
         <p>
-          astro ssr on cloudflare workers, with hot pages served from the edge cache and the heavy listing
-          page pre-rendered from a committed data dump to keep worker cpu down. hardened security headers,
-          iframe sandboxing, bearer-auth admin endpoints and turnstile on the contact and newsletter forms;
-          json-ld, open graph images and a dynamic sitemap for the search engines and answer engines.
+          nearly every page ships as a prerendered static asset; the few that stay dynamic are served from
+          a hand-rolled edge cache on cloudflare workers. every push deploys through a gate — typecheck,
+          twenty-five unit-test suites, then a smoke test that waits for the new build id on a health
+          endpoint and rolls back automatically if the live site misbehaves. hardened security headers,
+          per-ip rate limiting and turnstile on all three forms; json-ld, open graph images and a dynamic
+          sitemap for the search engines and answer engines.
         </p>
       </section>
 
@@ -143,7 +150,8 @@
         <p>
           tmdb's free tier forbids making money from the site, so every monetisation idea is explicitly
           parked behind a planned move to a commercially-licensed data provider — written down as a roadmap
-          rather than shipped now and unpicked later.
+          rather than shipped now and unpicked later. the catalogue schema already carries the fields the
+          new provider will fill.
         </p>
       </section>
 
